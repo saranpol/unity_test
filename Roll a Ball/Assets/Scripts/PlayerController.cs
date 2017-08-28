@@ -20,4 +20,12 @@ public class PlayerController : MonoBehaviour {
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 		rb.AddForce(movement * speed);
 	}
+
+	void OnTriggerEnter(Collider other) {
+		//Destroy(other.gameObject);
+		GameObject o = other.gameObject;
+		if(o.CompareTag("Pick Up")){
+			o.SetActive(false);
+		}
+	}
 }
